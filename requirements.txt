@@ -1,8 +1,8 @@
-geopandas=0.10
-pyqt=5.12
-rasterio=1.2
-shapely=1.8
-vtk=9.1
+geopandas==0.10
+pyqt==5.12
+rasterio==1.2
+shapely==1.8
+vtk==9.1
 xarray
 pyvista
 pyvistaqt
