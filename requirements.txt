@@ -1,5 +1,5 @@
 geopandas==0.10
-pyqt
+PyQt==5.12
 rasterio==1.2
 shapely==1.8
 vtk==9.1
