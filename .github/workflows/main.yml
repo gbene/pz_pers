@@ -29,10 +29,9 @@ jobs:
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
 
       # Build python script into a stand-alone exe
-      - uses: Nuitka/Nuitka-Action@main
+      - uses: JackMcKew/pyinstaller-action-windows@main
         with:
-          script-name: pzero.py
-          onefile: true
+          path: .
       
       # Uploads artifact
       - name: Upload Artifact
