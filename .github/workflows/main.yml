@@ -33,8 +33,6 @@ jobs:
         with:
           script-name: pzero.py
           onefile: true
-          follow-imports: true
-          enable-plugins: pyside6
       
       # Uploads artifact
       - name: Upload Artifact
