@@ -6,14 +6,6 @@ import platform
 import os
 import shutil
 
-system = platform.system()
-
-cwd = os.getcwd()
-
-path = os.path.join(cwd,f'installers/PZero_{system}')
-
-if os.path.isdir(path):
-	shutil.rmtree(path)
 
 # list all rasterio and fiona submodules, to include them in the package
 additional_packages = list()
@@ -67,6 +59,3 @@ exe = EXE(
     codesign_identity=None,
     entitlements_file=None,
 )
-
-shutil.move('dist/',path)
-shutil.move('build/',path)
