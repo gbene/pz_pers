@@ -28,18 +28,22 @@ jobs:
           python-version: '3.9' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
           
+      - name: Setup Miniconda
+        uses: conda-incubator/setup-miniconda@v2.2.0
+        with:
+          miniconda-version: "latest"
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      - name: Run Pyinstaller
-        run: |
-          python -m pyinstaller pzero.spec
+            conda env create -n pzero -f environment.yml 
+
+ #     - name: Run Pyinstaller
+ #       run: |
+ #         python -m pyinstaller pzero.spec
 
       
       # Uploads artifact
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: Pzero executable
-          path: dist/pzero.exe
+ #     - name: Upload Artifact
+ #       uses: actions/upload-artifact@v3
+ #       with:
+ #         name: Pzero executable
+#          path: dist/pzero.exe
