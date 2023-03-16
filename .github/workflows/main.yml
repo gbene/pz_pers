@@ -41,7 +41,7 @@ jobs:
         
       - name: Run Pyinstaller
         run: |
-          python3 -m PyInstaller pzero.spec
+          python -m PyInstaller pzero.spec
 
       
       # Uploads artifact
