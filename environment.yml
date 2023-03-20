@@ -6,11 +6,11 @@ channels:
 dependencies:
   - python=3.9
   
-  - geopandas=0.10
-  - pyqt=5.12
+  - geopandas
+  - pyqt
   - rasterio=1.2
   - shapely=1.8
-  - vtk=9.1
+  - vtk
   
   - xarray
   - pyvista
