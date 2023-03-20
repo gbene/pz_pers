@@ -34,7 +34,7 @@ jobs:
           miniconda-version: "latest"
           auto-update-conda: true
           auto-activate-base: true
-          activate-environment: ""
+          activate-environment: true
           python-version: 3.9
       - name: Install dependencies
         run: |
