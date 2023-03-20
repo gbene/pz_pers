@@ -28,8 +28,6 @@ dependencies:
   - lxml
   - openpyxl  
   - pythreejs
-  - pyinstaller
-  - nuitka
   
   - scipy
   - matplotlib
