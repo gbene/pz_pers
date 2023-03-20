@@ -21,17 +21,17 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: macos-latest
-            TARGET: macos
-            CMD_BUILD: >
-                pyinstaller pzero.spec &&
-                cd dist/ &&
-                zip -r9 pzero pzero.app/                
-            OUT_FILE_NAME: pzero.zip
-          - os: windows-latest
-            TARGET: windows
-            CMD_BUILD: pyinstaller pzero.spec
-            OUT_FILE_NAME: pzero.exe
+#           - os: macos-latest
+#             TARGET: macos
+#             CMD_BUILD: >
+#                 pyinstaller pzero.spec &&
+#                 cd dist/ &&
+#                 zip -r9 pzero pzero.app/                
+#             OUT_FILE_NAME: pzero.zip
+#           - os: windows-latest
+#             TARGET: windows
+#             CMD_BUILD: pyinstaller pzero.spec
+#             OUT_FILE_NAME: pzero.exe
           - os: ubuntu-latest
             TARGET: ubuntu
             CMD_BUILD: pyinstaller pzero.spec
