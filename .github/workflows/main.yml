@@ -39,11 +39,15 @@ jobs:
         run: |
             conda activate pzero
         
-      - name: Run Pyinstaller
-        run: |
-          python -m PyInstaller pzero.spec
+#       - name: Run Pyinstaller
+#         run: |
+#           python -m PyInstaller pzero.spec
 
-      
+      - uses: Nuitka/Nuitka-Action@main
+        with:
+          nuitka-version: main
+          script-name: pzero.py
+          onefile: true
       # Uploads artifact
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
