@@ -32,6 +32,10 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2.2.0
         with:
           miniconda-version: "latest"
+          auto-update-conda: true
+          auto-activate-base: true
+          activate-environment: ""
+          python-version: 3.9
       - name: Install dependencies
         run: |
             conda list
