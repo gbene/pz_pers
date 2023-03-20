@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       # Check-out repository
@@ -28,29 +28,37 @@ jobs:
           python-version: '3.9' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
           
-      - name: Setup Miniconda
-        uses: conda-incubator/setup-miniconda@v2.2.0
-        with:
-          miniconda-version: "latest"
       - name: Install dependencies
         run: |
-            conda env create -n pzero -f environment.yml 
-      - name: Switch environment
+            python -m pip install --upgrade pip
+            pip install pyinstaller
+      - name: Run pyinstaller dependencies
         run: |
-            conda activate pzero
+            PyInstaller pzero.spec
+          
+#       - name: Setup Miniconda
+#         uses: conda-incubator/setup-miniconda@v2.2.0
+#         with:
+#           miniconda-version: "latest"
+#       - name: Install dependencies
+#         run: |
+#             conda env create -n pzero -f environment.yml 
+#       - name: Switch environment
+#         run: |
+#             conda activate pzero
         
 #       - name: Run Pyinstaller
 #         run: |
 #           python -m PyInstaller pzero.spec
 
-      - uses: Nuitka/Nuitka-Action@main
-        with:
-          nuitka-version: main
-          script-name: pzero.py
-          onefile: true
+#       - uses: Nuitka/Nuitka-Action@main
+#         with:
+#           nuitka-version: main
+#           script-name: pzero.py
+#           onefile: true
       # Uploads artifact
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: Pzero executable
-          path: build/pzero.exe
+          path: dist/pzero.exe
