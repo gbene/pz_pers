@@ -34,13 +34,12 @@ jobs:
           miniconda-version: "latest"
       - name: Install dependencies
         run: |
-            conda env create -n pzero 
+            conda env create -n pzero -f environment.yml
       - name: Switch environment
         run: |
             conda activate pzero
       - name: Install dependencies
         run: |
-            conda install rasterio
             python -m pip install --upgrade pip
             pip install pyinstaller
       - name: Run pyinstaller dependencies
