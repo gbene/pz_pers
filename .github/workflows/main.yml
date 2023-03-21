@@ -28,16 +28,16 @@ jobs:
 #                 cd dist/ &&
 #                 zip -r9 pzero pzero.app/                
 #             OUT_FILE_NAME: pzero.zip
-#           - os: windows-latest
-#             TARGET: windows
-#             CMD_BUILD: pyinstaller pzero.spec
-#             OUT_FILE_NAME: pzero.exe
-#               USE_CONDA: true
-          - os: ubuntu-latest
-            TARGET: ubuntu
+          - os: windows-latest
+            TARGET: windows
             CMD_BUILD: pyinstaller pzero.spec
-            OUT_FILE_NAME: pzero.bin
-            USE_CONDA: false
+            OUT_FILE_NAME: pzero.exe
+            USE_CONDA: true
+#           - os: ubuntu-latest
+#             TARGET: ubuntu
+#             CMD_BUILD: pyinstaller pzero.spec
+#             OUT_FILE_NAME: pzero
+#             USE_CONDA: false
             
 
     steps:
