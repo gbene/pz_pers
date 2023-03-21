@@ -19,18 +19,18 @@ jobs:
     steps:
     - name: Create Release
       id: create_release
-      uses: actions/create-release@v1
+      uses: actions/create-release@main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        tag_name: v0.1
+        release_name: Release v0.1
         draft: false
         prerelease: false
     - name: Output Release URL File
       run: echo "${{ steps.create_release.outputs.upload_url }}" > release_url.txt
     - name: Save Release URL File for publish
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@main
       with:
         name: release_url
         path: release_url.txt
@@ -95,7 +95,7 @@ jobs:
         run: ${{matrix.CMD_BUILD}}
         
       - name: Load Release URL File from release job
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@main
         with:
           name: release_url
       - name: Get Release File Name & Upload URL
@@ -106,7 +106,7 @@ jobs:
           echo ::set-output name=upload_url::$value        
       - name: Upload Release Asset
         id: upload-release-asset
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-release-asset@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
