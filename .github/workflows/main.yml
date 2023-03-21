@@ -16,7 +16,7 @@ on:
 
 jobs:
   build:
-    name: Build packages
+    name: Build packages for ${{ matrix.TARGET }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
